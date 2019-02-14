@@ -18,7 +18,7 @@ Sub 转换文字()
      objSelect.SelectOnScreen fType, fData                                '请大佬们切换到cad窗口，并框选要转换的文字，天正文字请提前炸开
      For Each acText In objSelect
        Set objattrib = ThisDrawing.ModelSpace.AddAttribute(acText.Height, acAttributeModeNormal, acText.TextString, acText.InsertionPoint, acText.TextString, acText.TextString)
-        acText.Delete                                                     '删除原有cad文字，
+        acText.Delete                                                     '删除原有cad文字
      Next
     objSelect.Delete                                                      '删除选择集
 
