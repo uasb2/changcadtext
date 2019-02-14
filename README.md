@@ -1,4 +1,4 @@
-本项目是功能是批量将cad文字转换成属性文字。\
+本项目是功能是批量将cad文字转换成属性文字(属性文字的好处是：如果在块里面不会随着块镜像翻转）。\
 使用方法：\
   1、打开autocad,依次点击“工具”--->“宏”--->"visual basic编辑器”；\
   2、复制[code文件](https://github.com/uasb2/changcadtext/blob/master/code) 里面的代码，粘贴进去；\
