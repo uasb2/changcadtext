@@ -1,0 +1,25 @@
+Sub 转换文字()
+
+    Dim objSelect As AcadSelectionSet                                      '定义一个选择集
+    Dim acText  As Object                                                  '定义一个普通对象
+    Dim objattrib As AcadAttribute                                         '定义一个属性对象
+    Dim fType(3) As Integer                                                '定义过滤器
+    Dim fData(3) As Variant
+    fType(0) = -4
+    fData(0) = "<or"
+    fType(1) = 0
+    fData(1) = "Text"
+    fType(2) = 0
+    fData(2) = "MText"
+    fType(3) = -4
+    fData(3) = "or>"
+    
+    Set objSelect = ThisDrawing.SelectionSets.Add("test1")                '选择集命名为test1
+     objSelect.SelectOnScreen fType, fData                                '请大佬们切换到cad窗口，并框选要转换的文字，天正文字请提前炸开
+     For Each acText In objSelect
+       Set objattrib = ThisDrawing.ModelSpace.AddAttribute(acText.Height, acAttributeModeNormal, acText.TextString, acText.InsertionPoint, acText.TextString, acText.TextString)
+        acText.Delete                                                     ‘删除原有cad文字，
+     Next
+    objSelect.Delete                                                      ’删除选择集
+
+End Sub
